@@ -12,6 +12,7 @@
 
 <div class="main">
 <h1>Question And Answer total:<?php echo $total ?></h1>
+	Please give the test first
 	<div class="test">
 
 		<table> 
