@@ -2,7 +2,7 @@
 
     $filepath = realpath(dirname(__FILE__));
     include_once ($filepath.'/../lib/Session.php');
-    Session::init();
+    // Session::init();
 	include_once ($filepath.'/../lib/Database.php');
 	include_once ($filepath.'/../helpers/Format.php');
 
@@ -31,10 +31,12 @@
 			}
 
 			if ($number == $total) {
-				header("Location: final.php");
+//				header("Location: final.php");
+                                echo("<script>location.href = 'final.php';</script>");
 				exit();
 			}else{
-				header("Location: test.php?q=".$next);
+//				header("Location: test.php?q=".$next);
+                                echo("<script>location.href = 'test.php?q='+$next;</script>");
 			}
 
 		}

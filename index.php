@@ -18,7 +18,7 @@
 	<form action="" method="post">
 		<table class="tbl">    
 			 <tr>
-			   <td>Username</td>
+			   <td>Email</td>
 			   <td><input name="email" type="text"></td>
 			 </tr>
 			 <tr>

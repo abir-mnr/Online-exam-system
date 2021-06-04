@@ -48,7 +48,8 @@ class Session{
 
 	 public static function destroy(){
 	 	session_destroy();
-	 	header("Location:login.php");
+//	 	header("Location:login.php");
+                echo("<script>location.href = 'index.php';</script>");
 	 }
 
 	 public static function checkUserSession(){

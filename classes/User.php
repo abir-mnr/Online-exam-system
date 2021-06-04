@@ -119,7 +119,8 @@
 				Session::set("userlogin", true);
 				Session::set("email", $value['email']);
 				Session::set("userid", $value['userid']);
-				header("Location: exam.php");
+//				header("Location: exam.php");
+                                echo("<script>location.href = '/exam.php';</script>");
 			}else{
 				$msg = "<span class='error'>Username or password not matched!</span>";
 				return $msg;

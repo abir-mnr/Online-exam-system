@@ -34,7 +34,8 @@ header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 		$bool = isset($_GET['action']) && $_GET['action']=="logoutuser";
 		if ($bool) {
 			Session::destroy();
-			header("Location: index.php");
+//			header("Location: index.php");
+                        echo("<script>location.href = 'index.php';</script>");
 		}
 	 ?>
 

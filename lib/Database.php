@@ -1,7 +1,7 @@
 <?php
 
-	$filepath = realpath(dirname(__FILE__));
-	include_once ($filepath.'/../config/config.php');
+$filepath = realpath(dirname(__FILE__));
+include_once ($filepath.'/../config/config.php');
 Class Database{
 	public $host   = DB_HOST;
 	public $user   = DB_USER;
@@ -17,12 +17,12 @@ Class Database{
 	}
 	
 	private function connectDB(){
-	$this->link = new mysqli($this->host, $this->user, $this->pass, $this->dbname);
-	if(!$this->link){
-		$this->error ="Connection fail".$this->link->connect_error;
-		return false;
+		$this->link = new mysqli($this->host, $this->user, $this->pass, $this->dbname);
+		if(!$this->link){
+			$this->error ="Connection fail".$this->link->connect_error;
+			return false;
+		}
 	}
- }
 	
 	// Select or Read data
 	public function select($query){
@@ -62,8 +62,6 @@ Class Database{
 	} else {
 		return false;
 	}
-  }
-
- 
- 
+  } 
 }
+?>
