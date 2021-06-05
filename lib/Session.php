@@ -20,14 +20,17 @@ class Session{
 	 	self::init();
 	 	if (self::get("adminLogin") == false) {
 	 		self::destroy();
-	 		header("Location: login.php");
+	 		// header("Location: login.php");
+			echo("<script>location.href = 'login.php';</script>");
+			
 	 	}
 	 }
 
 	 public static function checkAdminLogin(){
 	 	self::init();
 	 	if (self::get("adminLogin") == true) {
-	 		header("Location: index.php");
+	 		// header("Location: index.php");
+			echo("<script>location.href = 'index.php';</script>");
 	 	}
 	 }
 
@@ -35,28 +38,31 @@ class Session{
 	 	self::init();
 	 	if (self::get("login") == false) {
 	 		self::destroy();
-	 		header("Location:login.php");
+	 		// header("Location:login.php");
+			echo("<script>location.href = 'login.php';</script>");
 	 	}
 	 }
 
 	 public static function checkLogin(){
 	 	self::init();
 	 	if (self::get("login") == true) {
-	 		header("Location:index.php");
+	 		// header("Location:index.php");
+			echo("<script>location.href = 'index.php';</script>");
 	 	}
 	 }
 
 	 public static function destroy(){
 	 	session_destroy();
-//	 	header("Location:login.php");
-                echo("<script>location.href = 'index.php';</script>");
+	 	// header("Location:login.php");
+        // echo("<script>location.href = 'login.php';</script>");
 	 }
 
 	 public static function checkUserSession(){
 	 	self::init();
 	 	if (self::get("userlogin") == false) {
 	 		self::destroy();
-	 		header("Location:index.php");
+	 		// header("Location:index.php");
+			echo("<script>location.href = 'index.php';</script>");
 	 	}
 	 }
 }

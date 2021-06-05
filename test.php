@@ -10,7 +10,8 @@
 	if (isset($_GET['q'])) {
 		$number = (int)$_GET['q'];
 	}else{
-		header("Location: exam.php");
+		// header("Location: exam.php");
+		echo("<script>location.href = 'exam.php';</script>");
 	}
 	$total = $exm->getTotalRows();
 	$question = $exm->getQuesByNumber($number);

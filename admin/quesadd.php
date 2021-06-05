@@ -7,7 +7,7 @@
 <style>
 	.adminpanel{
 		width: 500px;
-		color #999;
+		color: #999;
 		margin: 30px auto 0;
 		padding: 10px;
 		border: 1px solid #ddd;

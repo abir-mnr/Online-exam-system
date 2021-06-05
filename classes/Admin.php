@@ -29,7 +29,8 @@
 				Session::set("adminLogin", true);
 				Session::set("adminUser", $value['adminUser']);
 				Session::set("adminId", $value['adminId']);
-				header("Location: index.php");
+				// header("Location: index.php");
+				echo("<script>location.href = 'index.php';</script>");
 			}else{
 				$msg = "<span class='error'>Username or password not matched!</span>";
 				return $msg;

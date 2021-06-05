@@ -31,12 +31,12 @@
 			}
 
 			if ($number == $total) {
-//				header("Location: final.php");
-                                echo("<script>location.href = 'final.php';</script>");
+				// header("Location: final.php");
+                echo("<script>location.href = 'final.php';</script>");
 				exit();
 			}else{
-//				header("Location: test.php?q=".$next);
-                                echo("<script>location.href = 'test.php?q='+$next;</script>");
+				// header("Location: test.php?q=".$next);
+                echo("<script>location.href = 'test.php?q='+$next;</script>");
 			}
 
 		}
