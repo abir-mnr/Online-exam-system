@@ -75,7 +75,7 @@ $total = $exm->getTotalRows();
                                     <?php if(isset($question['exp_for_study']) && $question['exp_for_study']!= null){ ?>
                                     <tr>
                                         <td colspan="2">
-                                            Ans: <?php echo $question['exp_for_study'] ?></h3>
+                                            Explanation: <?php echo $question['exp_for_study'] ?></h3>
                                         </td>
                                     </tr>
                                     <?php } ?>
