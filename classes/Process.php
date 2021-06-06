@@ -16,7 +16,10 @@
 		}
 
 		public function processData($data){
-			$selectedAns = $data['ans'];
+			$selectedAns='';
+			if(isset($data['ans']) && $data['ans'] != null){
+				$selectedAns = $data['ans'];
+			} 
 			$number = $data['number'];
 			$next = $number+1;
 
