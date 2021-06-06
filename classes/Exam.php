@@ -16,13 +16,16 @@
 		public function addQuestions($data){
 			$quesno = $data['quesno'];
 			$ques = $data['ques'];
+			$quesForStudy = $data['ques_for_study'];
+			$ansForStudy = $data['ans_for_study'];
+			$expForStudy = $data['exp_for_study'];
 			$ans = array();
 			$ans[1]=$data['ans1'];
 			$ans[2]=$data['ans2'];
 			$ans[3]=$data['ans3'];
 			$ans[4]=$data['ans4'];
 			$correctAns = $data['correctAns'];
-			$query = "INSERT INTO tbl_ques(quesNo,ques) VALUES('$quesno','$ques')";
+			$query = "INSERT INTO tbl_ques(quesNo,ques,ques_for_study,ans_for_study,exp_for_study) VALUES('$quesno','$ques','$quesForStudy','$ansForStudy','$expForStudy')";
 			$insert_row = $this->db->insert($query);
 			if ($insert_row) {
 				foreach ($ans as $key=> $answer) {

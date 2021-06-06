@@ -60,7 +60,6 @@ $total = $exm->getTotalRows();
                             $answerString = "";
                             if ($getQues) {
                                 while ($question = $getQues->fetch_assoc()) {
-
                             ?>
 
                                     <tr>
@@ -73,6 +72,13 @@ $total = $exm->getTotalRows();
                                             Ans: <?php echo $question['ans_for_study'] ?></h3>
                                         </td>
                                     </tr>
+                                    <?php if(isset($question['exp_for_study']) && $question['exp_for_study']!= null){ ?>
+                                    <tr>
+                                        <td colspan="2">
+                                            Ans: <?php echo $question['exp_for_study'] ?></h3>
+                                        </td>
+                                    </tr>
+                                    <?php } ?>
                                     <tr>
                                         <td><br></td>
                                     </tr>
