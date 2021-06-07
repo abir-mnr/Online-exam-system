@@ -16,6 +16,10 @@
 
 
 <?php
+	if($_SERVER['REQUEST_METHOD'] == 'POST'){
+		$editque = $exm->editQuestions($_POST);
+	}
+
     if(isset($_GET['no']) && $_GET['no'] != null){
         $quesNo =  $_GET['no'];
 		$question = $exm->getQuesByNumber($quesNo);
@@ -31,9 +35,7 @@
 			$i++;
 		}
     }
-	if($_SERVER['REQUEST_METHOD'] == 'POST'){
-		$editque = $exm->editQuestions($_POST);
-	}
+	
  ?>
 
 <div class="main">
