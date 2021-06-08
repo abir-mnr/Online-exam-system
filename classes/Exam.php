@@ -132,7 +132,7 @@
 		}
 
 		public function getAnswer($number){
-			$query = "SELECT * FROM tbl_ans WHERE quesNo = '$number'";
+			$query = "SELECT * FROM tbl_ans WHERE quesNo = '$number' order by id";
 			$getData = $this->db->select($query);
 			return $getData;
 		}
