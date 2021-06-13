@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: fdb23.awardspace.net
--- Generation Time: Jun 13, 2021 at 04:03 PM
+-- Generation Time: Jun 13, 2021 at 04:37 PM
 -- Server version: 5.7.20-log
 -- PHP Version: 5.5.38
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `2819247_onlineexam`
 --
-CREATE DATABASE IF NOT EXISTS `2819247_onlineexam` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `2819247_onlineexam`;
 
 -- --------------------------------------------------------
 
