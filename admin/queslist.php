@@ -41,9 +41,9 @@
 			<tr>
 				<td><?php echo $i; ?></td>
 				<td><?php  echo $result['ques'];?></td>
-				<td>	 
+				<td>
+					<a href="quesedit.php?no=<?php  echo $result['quesNo'];?>">Edit</a>	 
 					<a onclick="return confirm('Are you sure to delete?')" href="?delque=<?php  echo $result['quesNo'];?>">Remove</a>
-					
 					
 				</td>
 			</tr>

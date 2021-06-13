@@ -47,8 +47,10 @@ class Session{
 	 	self::init();
 	 	if (self::get("login") == true) {
 	 		// header("Location:index.php");
-			echo("<script>location.href = 'index.php';</script>");
-	 	}
+			echo("<script>location.href = 'exam.php';</script>");
+	 	}else{
+			 self::destroy();
+		 }
 	 }
 
 	 public static function destroy(){

@@ -15,14 +15,17 @@
 
 		public function addQuestions($data){
 			$quesno = $data['quesno'];
-			$ques = $data['ques'];
+			$ques = mysqli_real_escape_string($this->db->link, $data['ques']);
+			$quesForStudy =  mysqli_real_escape_string($this->db->link, $data['ques_for_study']);
+			$ansForStudy = mysqli_real_escape_string($this->db->link, $data['ans_for_study']);
+			$expForStudy = mysqli_real_escape_string($this->db->link, $data['exp_for_study']);
 			$ans = array();
-			$ans[1]=$data['ans1'];
-			$ans[2]=$data['ans2'];
-			$ans[3]=$data['ans3'];
-			$ans[4]=$data['ans4'];
+			$ans[1]=mysqli_real_escape_string($this->db->link, $data['ans1']);
+			$ans[2]=mysqli_real_escape_string($this->db->link, $data['ans2']);
+			$ans[3]=mysqli_real_escape_string($this->db->link, $data['ans3']);
+			$ans[4]=mysqli_real_escape_string($this->db->link, $data['ans4']);
 			$correctAns = $data['correctAns'];
-			$query = "INSERT INTO tbl_ques(quesNo,ques) VALUES('$quesno','$ques')";
+			$query = "INSERT INTO tbl_ques(quesNo,ques,ques_for_study,ans_for_study,exp_for_study) VALUES('$quesno','$ques','$quesForStudy','$ansForStudy','$expForStudy')";
 			$insert_row = $this->db->insert($query);
 			if ($insert_row) {
 				foreach ($ans as $key=> $answer) {
@@ -42,6 +45,44 @@
 				}
 
 				$msg = "<span class='success'>Question inserted successfully</span>";
+				return $msg;
+			}
+		}
+
+		public function editQuestions($data){
+			$quesno = $data['quesno'];
+			$ques = mysqli_real_escape_string($this->db->link, $data['ques']);
+			$quesForStudy =  mysqli_real_escape_string($this->db->link, $data['ques_for_study']);
+			$ansForStudy = mysqli_real_escape_string($this->db->link, $data['ans_for_study']);
+			$expForStudy = mysqli_real_escape_string($this->db->link, $data['exp_for_study']);
+			$ans = array();
+			$ans[1]=mysqli_real_escape_string($this->db->link, $data['ans1']);
+			$ans[2]=mysqli_real_escape_string($this->db->link, $data['ans2']);
+			$ans[3]=mysqli_real_escape_string($this->db->link, $data['ans3']);
+			$ans[4]=mysqli_real_escape_string($this->db->link, $data['ans4']);
+			$correctAns = $data['correctAns'];
+			$query = "UPDATE tbl_ques SET ques='$ques',ques_for_study='$quesForStudy',ans_for_study='$ansForStudy',exp_for_study='$expForStudy' WHERE quesNo='$quesno'";
+			$update = $this->db->update($query);
+			if ($update) {
+				$query = "DELETE FROM tbl_ans WHERE quesNo = '$quesno'";
+				$this->db->delete($query);
+				foreach ($ans as $key=> $answer) {
+					if ($answer!='') {
+						if ($correctAns == $key) {
+							$rquery = "INSERT INTO tbl_ans(quesNo,correctAns,ans) VALUES('$quesno','1','$answer')";
+						}else{
+							$rquery = "INSERT INTO tbl_ans(quesNo,correctAns,ans) VALUES('$quesno','0','$answer')";
+						}
+						$insertrow = $this->db->insert($rquery);
+						if ($insertrow) {
+							continue;
+						}else{
+							die('Error');
+						}
+					}
+				}
+
+				$msg = "<span class='success'>Question Updated successfully</span>";
 				return $msg;
 			}
 		}
@@ -91,7 +132,7 @@
 		}
 
 		public function getAnswer($number){
-			$query = "SELECT * FROM tbl_ans WHERE quesNo = '$number'";
+			$query = "SELECT * FROM tbl_ans WHERE quesNo = '$number' order by id";
 			$getData = $this->db->select($query);
 			return $getData;
 		}

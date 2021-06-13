@@ -73,6 +73,21 @@
 					<td><input type="number" name="correctAns" placeholder="Enter correct answer no" required></td>
 				</tr>
 				<tr>
+					<td>Question for study page</td>
+					<td>:</td>
+					<td><input type="text" name="ques_for_study" placeholder="Enter question" required></td>
+				</tr>
+				<tr>
+					<td>Answer for study page</td>
+					<td>:</td>
+					<td><input type="text" name="ans_for_study" placeholder="Enter answer" required></td>
+				</tr>
+				<tr>
+					<td>Explanation for the answer</td>
+					<td>:</td>
+					<td><input type="text" name="exp_for_study" placeholder="Enter explanation of the answer"></td>
+				</tr>
+				<tr>
 					<td colspan="3" align="center">
 						<input type="submit" value="Add a Question">
 					</td>

@@ -8,20 +8,5 @@ header("Pragma: no-cache");
 header("Expires: Mon, 6 Dec 1977 00:00:00 GMT"); 
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 ?>
-<!doctype html>
-<html>
-<head>
-	<title>Login</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="Pragma" content="no-cache">
-	<meta http-equiv="no-cache">
-	<meta http-equiv="Expires" content="-1">
-	<meta http-equiv="Cache-Control" content="no-cache">
-	<link rel="stylesheet" href="css/login.css">
-</head>
-<body>
-<div class="phpcoding">
-	<section class="headeroption">Online Exam System</section>
-		<section class="maincontent">
 
 	
