@@ -60,70 +60,33 @@ $total = $exm->getTotalRows();
                             $answerString = "";
                             if ($getQues) {
                                 while ($question = $getQues->fetch_assoc()) {
-
                             ?>
 
                                     <tr>
                                         <td colspan="2">
-                                            <h3>Que <?php echo $question['quesNo'] ?>: <?php echo $question['ques'] ?></h3>
+                                            <h3>Que <?php echo $question['quesNo'] ?>: <?php echo $question['ques_for_study'] ?></h3>
                                         </td>
                                     </tr>
-
-                                    <?php
-                                    $number = $question['quesNo'];
-                                    $answer = $exm->getAnswer($number);
-                                    if ($answer) {
-                                        $answerNumber = 0;
-                                        while ($result = $answer->fetch_assoc()) {
-                                    ?>
-
-                                        <tr>
-                                            <td>
-                                                <input type="radio" />
-                                                <?php
-                                                if ($result['correctAns'] == '1') {
-                                                    $answerAlpha = '';
-                                                    if ($answerNumber == 0) {
-                                                        $answerAlpha = 'a';
-                                                    } else if ($answerNumber == 1) {
-                                                        $answerAlpha = 'b';
-                                                    } else if ($answerNumber == 2) {
-                                                        $answerAlpha = 'c';
-                                                    } else if ($answerNumber == 3) {
-                                                        $answerAlpha = 'd';
-                                                    }
-                                                    echo $result['ans'];
-                                                    $answerString = $answerString . "Ques-" . $number . ": {$answerAlpha}) " . $result['ans'] . ",   ";
-                                                } else {
-                                                    echo $result['ans'];
-                                                }
-                                                ?>
-                                            </td>
-                                        </tr>
-
-                                    <?php
-                                            $answerNumber++;
-                                        }
-                                    }
-                                    ?>
-                                <tr>
-                                    <td>
-                                        <br>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            Ans: <?php echo $question['ans_for_study'] ?></h3>
+                                        </td>
+                                    </tr>
+                                    <?php if(isset($question['exp_for_study']) && $question['exp_for_study']!= null){ ?>
+                                    <tr>
+                                        <td colspan="2">
+                                            Explanation: <?php echo $question['exp_for_study'] ?></h3>
+                                        </td>
+                                    </tr>
+                                    <?php } ?>
+                                    <tr>
+                                        <td><br></td>
+                                    </tr>
+                                    
                             <?php
                                 }
                             }
                             ?>
-                            <tr>
-                                <td><br></td>
-                            </tr>
-                            <tr>
-                                <td>Answers: </td>
-                            </tr>
-                            <tr>
-                                <td><?php echo $answerString; ?></td>
-                            </tr>
 
                         </table>
                         <!-- </div>
